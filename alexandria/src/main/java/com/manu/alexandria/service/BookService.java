@@ -108,8 +108,8 @@ public final class BookService extends IntentService {
         }
 
         bookEntry.close();
-        Utils.isConnected(BookService.this);
-
+        if(Utils.isConnected(BookService.this))
+{
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         String bookJsonString = null;
@@ -223,6 +223,7 @@ public final class BookService extends IntentService {
             setBookServiceStatus(BOOK_SERVICE_STATUS_SERVER_INVALID);
         }
     }
+}
 
     private void writeBackBook(String ean, String title, String subtitle, String desc, String imgUrl) {
         ContentValues values = new ContentValues();
