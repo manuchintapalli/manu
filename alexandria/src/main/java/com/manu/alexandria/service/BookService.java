@@ -108,6 +108,7 @@ public final class BookService extends IntentService {
         }
 
         bookEntry.close();
+        Utils.isConnected(BookService.this);
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
